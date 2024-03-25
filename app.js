@@ -13,7 +13,7 @@ app.set('views', __dirname + "/views/pages/")
 app.use(express.urlencoded({extended:false}))
 app.use(express.static(__dirname + '/public'));
 app.use(expressEjsLayout)
-app.use("/", frontendRoutes)
+app.use("/", frontEndRoutes)
 
 const server = ()=>{
     try {
