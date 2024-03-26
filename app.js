@@ -2,7 +2,7 @@ const express= require('express')
 const dotenv = require('dotenv')
 dotenv.config()
 const expressEjsLayout = require('express-ejs-layouts')
-const frontEndRoutes = require('../routes/frontEndRoutes')
+const frontEndRoutes = require('./routes/frontEndRoutes')
 const app = express()
 
 const port = process.env.Port || 3000
