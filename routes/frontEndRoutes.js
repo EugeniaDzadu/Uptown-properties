@@ -9,9 +9,9 @@ router.get('/about', about)
 router.get('/blog', blog)
 router.get('/contact', contact)
 router.get('/blogSingle', blogSingle)
-router.get('agent', agent)
+router.get('/agent', agent)
 router.get('/properties', properties)
 router.get('/propertiesSingle', propertiesSingle)
 router.get('/services', services)
 
-module.export = router;
+module.exports = router;

@@ -2,7 +2,7 @@ const express= require('express')
 const dotenv = require('dotenv')
 dotenv.config()
 const expressEjsLayout = require('express-ejs-layouts')
-const frontEndRoutes = require('./routes/frontEndRoutes')
+const frontRoutes = require('./routes/frontEndRoutes')
 const app = express()
 
 const port = process.env.Port || 3000
@@ -13,7 +13,7 @@ app.set('views', __dirname + "/views/pages/")
 app.use(express.urlencoded({extended:false}))
 app.use(express.static(__dirname + '/public'));
 app.use(expressEjsLayout)
-app.use("/", frontEndRoutes)
+app.use('/', frontRoutes)
 
 const server = ()=>{
     try {
