@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 const home = (req , res)=>{
     res.render('index')
 }
@@ -34,6 +36,42 @@ const agent = (req , res)=>{
     res.render('agent')
 }
 
+const sendEmail = (req , res)=>{
+    const { name, email, subject, message } = req.body;
+    
+    // Nodemailer transporter
+    const transporter = nodemailer.createTransport({
+        host: "smtp-relay.brevo.com",
+        port: 587,
+        secure: false,
+        auth: {
+      
+          user: "690c53001@smtp-brevo.com",
+          pass: "F08Yhy2xzTIcD94U",
+        }
+      });
+
+      // Email content
+    const mailOptions = {
+        from: email,
+        to: 'edzadu6@gmail.com', 
+        subject: subject,
+        text: message
+    };
+
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            res.send('Error: Something went wrong');
+        } else {
+            console.log('Email sent: ' + info.response);
+            res.send('Email sent successfully');
+        }
+    });
+
+}
+
 module.exports = {
     home,
     about,
@@ -43,5 +81,6 @@ module.exports = {
     blogSingle,
     properties,
     propertiesSingle,
-    services
+    services,
+    sendEmail
 }
