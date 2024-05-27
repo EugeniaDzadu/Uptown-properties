@@ -1,4 +1,4 @@
-const {home, about, blog, contact, blogSingle, agent, properties, propertiesSingle, services,} = require('../controllers/frontEndController')
+const {home, about, blog, contact, blogSingle, agent, properties, propertiesSingle, services, sendEmail,} = require('../controllers/frontEndController')
 
 const express = require('express')
 
@@ -13,5 +13,7 @@ router.get('/agent', agent)
 router.get('/properties', properties)
 router.get('/propertiesSingle', propertiesSingle)
 router.get('/services', services)
+
+router.post('/contact',sendEmail)
 
 module.exports = router;

@@ -36,7 +36,7 @@ const agent = (req , res)=>{
     res.render('agent')
 }
 
-const sendEmail = (req , res)=>{
+const sendEmail = (req, res) => {
     const { name, email, subject, message } = req.body;
     
     // Nodemailer transporter
@@ -45,13 +45,12 @@ const sendEmail = (req , res)=>{
         port: 587,
         secure: false,
         auth: {
-      
-          user: "690c53001@smtp-brevo.com",
-          pass: "F08Yhy2xzTIcD94U",
+            user: "690c53001@smtp-brevo.com",
+            pass: "F08Yhy2xzTIcD94U",
         }
-      });
+    });
 
-      // Email content
+    // Email content
     const mailOptions = {
         from: email,
         to: 'edzadu6@gmail.com', 
@@ -66,11 +65,13 @@ const sendEmail = (req , res)=>{
             res.send('Error: Something went wrong');
         } else {
             console.log('Email sent: ' + info.response);
-            res.send('Email sent successfully');
+            // Alert message
+            alert("Email sent successfully!");
         }
     });
-
+    res.redirect('/');
 }
+
 
 module.exports = {
     home,
