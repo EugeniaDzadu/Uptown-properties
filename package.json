@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/EugeniaDzadu/Uptown-properties.git",
   "author": "EugeniaDzadu <jeeniaace@gmail.com>",
-  "license": "SPDX",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
